@@ -1,14 +1,28 @@
 #include "gtest/gtest.h"
 #include "calculator.h"
 
-TEST(CalculatorTestSuite, AddTest) {
-    int result = Calculator::add(1, 1);
+TEST(CalculatorTestSuite, AddPositive) {
+    // setup
+    int a = 1;
+    int b = 1;
 
-    ASSERT_EQ(2, result);
+    // run
+    int result = Calculator::add(a, b);
+
+    // verify
+    int expected = 2;
+    ASSERT_EQ(expected, result);
 }
 
-TEST(CalculatorTestSuite, AddNegativeTest) {
-    int result = Calculator::add(-1, 1);
+TEST(CalculatorTestSuite, AddNegative) {
+    // setup
+    int a = -1;
+    int b = 1;
 
-    ASSERT_EQ(0, result);
+    // run
+    int result = Calculator::add(a, b);
+
+    // verify
+    int expected = 0;
+    ASSERT_EQ(expected, result);
 }
