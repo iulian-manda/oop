@@ -6,7 +6,7 @@
 class ChocolateUI {
 
 private:
-    ChocolateController controller;
+    ChocolateController* controller;
     static void show_menu();
     void add_chocolate();
     void find_by_type();

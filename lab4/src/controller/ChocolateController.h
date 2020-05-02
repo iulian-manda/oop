@@ -2,17 +2,19 @@
 
 #include "../domain/Chocolate.h"
 #include "../repository/ChocolateRepository.h"
+#include "../repository/ChocolateInMemoryRepository.cpp"
+#include "../repository/ChocolateFileRepository.cpp"
 
 class ChocolateController {
 
 private:
-    ChocolateRepository repository;
+    ChocolateRepository* repository;
 public:
     /*
      * Constructor
      * repository - an instance of the ChocolateRepository
      */
-    explicit ChocolateController();
+    ChocolateController();
 
     /*
      * Adds a new Chocolate to repository

@@ -3,7 +3,12 @@
 using namespace std;
 
 ChocolateUI::ChocolateUI() {
-    this->controller = ChocolateController();
+    try {
+        this->controller = new ChocolateController{};
+    } catch (FileNotFoundException& e) {
+        cout<<e.what()<<endl;
+        throw;
+    }
 }
 
 void ChocolateUI::show_menu() {
@@ -20,7 +25,7 @@ void ChocolateUI::add_chocolate() {
     cout<<"price(RON): ";
     cin>>price;
 
-    controller.add_chocolate(name, type, price);
+    controller->add_chocolate(name, type, price);
 }
 
 void ChocolateUI::find_by_type() {
@@ -28,7 +33,7 @@ void ChocolateUI::find_by_type() {
     cout<<"type: ";
     cin>>type;
 
-    for(Chocolate chocolate : controller.find_chocolate(type)) {
+    for(Chocolate chocolate : controller->find_chocolate(type)) {
         cout<<chocolate.get_name()<<" "<<chocolate.get_type()<<" "<<chocolate.get_price()<<" RON"<<endl;
     }
 }

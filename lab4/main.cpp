@@ -5,7 +5,7 @@ using namespace std;
 #include "src/ui/ChocolateUI.h"
 
 int main() {
-    ChocolateUI ui = ChocolateUI();
+    auto* ui = new ChocolateUI{};
 
-    ui.startUI();
+    ui->startUI();
 }
